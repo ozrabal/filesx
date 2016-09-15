@@ -4,7 +4,8 @@ require.config({
         'jquery': '../bower_components/jquery/dist/jquery.min',
         'underscore': '../bower_components/underscore/underscore-min',
         'backbone': '../bower_components/backbone/backbone-min',
-        'localStorage': '../libs/backbone.localStorage',
+        'text': '../bower_components/text/text',
+        'localStorage': '../libs/backbone.localStorage'
 
     },
     shim: {
@@ -20,12 +21,14 @@ require.config({
         },
         'backbone.localStorage': {
             deps: ['backbone'],
-            exports: 'Backbone.localStorage',
+            exports: 'localStorage',
         }
+
     }
 });
 
 require([
+
     'router',
     'jquery',
     'underscore',
