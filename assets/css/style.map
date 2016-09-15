@@ -1,0 +1,1 @@
+{"version":3,"sources":["parts/_common.scss"],"names":[],"mappings":"AAAA,aACE,gBAAgB,EACjB","file":"main.css","sourcesContent":["html, body {\n  font-size: 16px;\n}"],"sourceRoot":"/source/"}
