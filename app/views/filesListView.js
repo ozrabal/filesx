@@ -2,8 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/filesList.html'
-], function($, _, Backbone, filesList){
+    'text!templates/filesList.html',
+    'collections/fileCollection'
+], function($, _, Backbone, filesList, filesCollection){
     return Backbone.View.extend({
         template: _.template(filesList),
 
@@ -14,6 +15,7 @@ define([
         initialize: function(){
             console.log('List View Init');
             this.$el.html(this.template({}));
+            this.filesCollection = new filesCollection();
             return this;
         },
         render: function(){
@@ -23,6 +25,11 @@ define([
 
         addNew: function(event){
             console.log('click new');
+            //todo change, only dir can be created in this way /add new model/collection for files
+            this.filesCollection.create({
+                name: this.$el.find("#new-dir").val()
+            });
+
         }
     })
 });
