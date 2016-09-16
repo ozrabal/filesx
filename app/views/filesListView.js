@@ -4,9 +4,12 @@ define([
     'backbone',
     'text!templates/filesList.html',
     'collections/fileCollection',
-    'collections/directoryCollection'
-], function($, _, Backbone, filesList, filesCollection, directoryCollection){
+    'collections/directoryCollection',
+    'views/fileView',
+    'views/directoryView',
+], function($, _, Backbone, filesList, fileCollection, directoryCollection, fileView, directoryView){
     return Backbone.View.extend({
+
         template: _.template(filesList),
 
         events: {
@@ -16,22 +19,38 @@ define([
         initialize: function(){
             console.log('List View Init');
             this.$el.html(this.template({}));
-            this.filesCollection = new filesCollection([
-                {'name': 'file1.jpg'},
-                {'name': 'file2.jpg'},
-                {'name': 'file3.jpg'}
-            ]);
+            //todo unification both types into one "item"
+            this.fileCollection = new fileCollection();
+            this.fileCollection.on('add', this.addOneFile, this);
+            this.fileCollection.fetch();
+
             this.directoryCollection = new directoryCollection();
+            this.directoryCollection.on('add', this.addOneDirectory, this);
+            this.directoryCollection.fetch();
+
             return this;
         },
+
         render: function(){
-            console.log(this.filesCollection);
-            //this.$el.html(this.template);
+            return this;
+        },
+
+        addOneFile: function(fileModel) {
+
+            var view = new fileView({model: fileModel});
+
+            this.$el.find("#file-list").append(view.render().$el);
+            return this;
+        },
+        addOneDirectory: function(directoryModel) {
+
+            var view = new directoryView({model: directoryModel});
+
+            this.$el.find("#file-list").append(view.render().$el);
             return this;
         },
 
         addNew: function(event){
-            console.log('click new');
             this.directoryCollection.create({
                 name: this.$el.find("#new-dir").val()
             });
