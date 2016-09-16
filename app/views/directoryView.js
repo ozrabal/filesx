@@ -11,12 +11,14 @@ define([
         events: {
             'click .btn-edit': 'edit',
             'click .btn-save': 'update', //todo on hit enter too
-            'click .remove': 'select'
+            'click .remove': 'select',
+            'click .btn-delete': 'delete'
         },
 
         initialize: function(){
 
             this.model.on('change', this.render, this);
+            this.model.on('destroy', this.remove, this);
             return this;
         },
         render: function(){
@@ -41,6 +43,11 @@ define([
 
         select: function(){
             this.model.save({selected: !this.model.get('selected')});
+            return this;
+        },
+
+        delete: function(){
+            this.model.destroy();
             return this;
         }
     })

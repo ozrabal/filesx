@@ -20,7 +20,7 @@ define([
         initialize: function(){
             console.log('List View Init');
             this.$el.html(this.template({}));
-            
+
             this.newDirInput = this.$el.find("#new-dir");
 
             //todo unification both types into one "item"
