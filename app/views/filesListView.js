@@ -13,7 +13,8 @@ define([
         template: _.template(filesList),
 
         events: {
-          'click #add': 'addNew'
+            'click #add': 'addNew',
+            'click #select-toggle': 'selectToggle'
         },
 
         initialize: function(){
@@ -52,9 +53,17 @@ define([
 
         addNew: function(event){
             this.directoryCollection.create({
-                name: this.$el.find("#new-dir").val()
+                name: this.$el.find("#new-dir").val(),
+                selected: false
             });
+        },
 
+        selectToggle: function(){
+            var selected = this.$el.find("#select-toggle")[0].checked;
+            this.directoryCollection.each(function(el){
+               el.save({'selected': selected});
+                return this;
+            })
         }
     })
 });

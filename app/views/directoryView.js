@@ -11,6 +11,7 @@ define([
         events: {
             'click .btn-edit': 'edit',
             'click .btn-save': 'update', //todo on hit enter too
+            'click .remove': 'select'
         },
 
         initialize: function(){
@@ -35,6 +36,11 @@ define([
                 this.model.save({name: value});
             }
             this.$el.removeClass('active');
+            return this;
+        },
+
+        select: function(){
+            this.model.save({selected: !this.model.get('selected')});
             return this;
         }
     })
