@@ -20,6 +20,9 @@ define([
         initialize: function(){
             console.log('List View Init');
             this.$el.html(this.template({}));
+            
+            this.newDirInput = this.$el.find("#new-dir");
+
             //todo unification both types into one "item"
             this.fileCollection = new fileCollection();
             this.fileCollection.on('add', this.addOneFile, this);
@@ -52,10 +55,14 @@ define([
         },
 
         addNew: function(event){
-            this.directoryCollection.create({
-                name: this.$el.find("#new-dir").val(),
-                selected: false
-            });
+            var newDirectory = this.newDirInput.val();
+            if(newDirectory) {
+                this.directoryCollection.create({
+                    name: newDirectory,
+                    selected: false
+                });
+                this.newDirInput.val('');
+            }
         },
 
         selectToggle: function(){
