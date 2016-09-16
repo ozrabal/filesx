@@ -1,3 +1,9 @@
-html, body { font-size: 16px; }
+li { position: relative; }
+
+li .edit { display: none; position: absolute; }
+
+li.active .view { display: none; }
+
+li.active .edit { display: block; }
 
 /*# sourceMappingURL=main.css.map */

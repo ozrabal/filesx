@@ -1,3 +1,19 @@
-html, body {
-  font-size: 16px;
+li{
+  position: relative;
+
+  .edit {
+    display: none;
+    position: absolute;
+  }
+  &.active {
+    .view {
+      display: none;
+    }
+    .edit {
+
+      display: block;
+    }
+  }
+
 }
+
