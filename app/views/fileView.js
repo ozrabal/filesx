@@ -8,8 +8,6 @@ define([
         tagName: 'li',
         template: _.template(filesView),
 
-
-
         initialize: function(){
 
             this.model.on('change', this.render, this);
@@ -18,7 +16,7 @@ define([
         },
         render: function(){
             console.log(this.model.toJSON());
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.addClass('list-group-item').html(this.template(this.model.toJSON()));
             return this;
         }
     })

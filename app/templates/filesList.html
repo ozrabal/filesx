@@ -1,6 +1,21 @@
-<h2>Files list</h2>
-<h3>Add new</h3>
-<input id="new-dir" type="text"><button id="add" class="btn btn-primary btn-small">+</button>
-<label>Select all</label>
-<input id="select-toggle" type="checkbox">
-<ul id="file-list"></ul>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Directory explorer
+        </div>
+        <div class="panel-body">
+            <label>Add new</label>
+            <div class="input-group ">
+                <input id="new-dir" type="text" class="form-control ">
+                <span class="input-group-btn">
+                    <button id="add" class="btn btn-primary btn-small">+</button>
+                </span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <input id="select-toggle" type="checkbox"><label>Select all</label>
+            <a id="delete-selected" href="#" class="delete-all">Delete selected</a>
+        </div>
+        <ul id="file-list" class="list-group"></ul>
+    </div>
+</div>

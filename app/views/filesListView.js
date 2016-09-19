@@ -14,7 +14,8 @@ define([
 
         events: {
             'click #add': 'addNew',
-            'click #select-toggle': 'selectToggle'
+            'click #select-toggle': 'selectToggle',
+            'click #delete-selected': 'deleteAll'
         },
 
         initialize: function(){
@@ -36,6 +37,7 @@ define([
         },
 
         render: function(){
+
             return this;
         },
 
@@ -65,12 +67,26 @@ define([
             }
         },
 
+        deleteAll: function(){
+            
+            _.invoke(this.directoryCollection.selected(), 'destroy');
+            this.$el.find("#delete-selected").hide();
+            return false;
+
+        },
+
         selectToggle: function(){
             var selected = this.$el.find("#select-toggle")[0].checked;
             this.directoryCollection.each(function(el){
                el.save({'selected': selected});
                 return this;
             })
+            //todo show/hide del button on change each checkbox
+            if(this.directoryCollection.selected().length){
+                this.$el.find("#delete-selected").show();
+            }else{
+                this.$el.find("#delete-selected").hide();
+            }
         }
     })
 });

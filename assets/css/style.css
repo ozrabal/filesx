@@ -1,9 +1,11 @@
-li { position: relative; }
+.list-group-item { position: relative; }
 
-li .edit { display: none; position: absolute; }
+.list-group-item .edit { display: none; position: absolute; }
 
-li.active .view { display: none; }
+.list-group-item.active .view { display: none; }
 
-li.active .edit { display: block; }
+.list-group-item.active .edit { display: block; }
+
+.delete-all { display: none; }
 
 /*# sourceMappingURL=main.css.map */

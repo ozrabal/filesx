@@ -1,7 +1,7 @@
-li{
+.list-group-item{
   position: relative;
 
-  .edit {
+  .edit{
     display: none;
     position: absolute;
   }
@@ -16,4 +16,6 @@ li{
   }
 
 }
-
+.delete-all{
+  display: none;
+}
