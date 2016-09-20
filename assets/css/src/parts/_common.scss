@@ -4,6 +4,14 @@
   .edit{
     display: none;
     position: absolute;
+
+
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    padding: 0.5rem 16rem .5rem 6rem;
+    width: 100%;
+    margin: 0px 0px 0 -15px;
   }
   &.active {
     .view {
@@ -16,6 +24,22 @@
   }
 
 }
+
+.file{
+  float: left;
+  display: block;
+  &.check{
+    width: 4%;
+  }
+  &.name{
+    width: 68%;
+  }
+  &.action{
+    width: 30%;
+  }
+}
+
+
 .delete-all{
   display: none;
 }

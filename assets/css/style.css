@@ -1,10 +1,18 @@
 .list-group-item { position: relative; }
 
-.list-group-item .edit { display: none; position: absolute; }
+.list-group-item .edit { display: none; position: absolute; top: 0; height: 100%; background-color: #fff; padding: 0.5rem 16rem .5rem 6rem; width: 100%; margin: 0px 0px 0 -15px; }
 
 .list-group-item.active .view { display: none; }
 
 .list-group-item.active .edit { display: block; }
+
+.file { float: left; display: block; }
+
+.file.check { width: 4%; }
+
+.file.name { width: 68%; }
+
+.file.action { width: 30%; }
 
 .delete-all { display: none; }
 

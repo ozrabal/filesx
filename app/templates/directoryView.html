@@ -1,14 +1,18 @@
-<div>
+<div class="clearfix">
+    <span class="file check">
     <input type="checkbox" class="remove" <%= selected ? 'checked="checked"' : '' %> >
-    <%- name %>
-    <button class="btn-edit btn-primary">Rename</button>
-    <button class="btn-delete btn-primary">Delete</button>
+    </span>
+    <span class="file name"><%- name %></span>
+    <span class="file pull-right">
+    <button class="btn-edit btn btn-default btn-xs">Rename</button>
+    <button class="btn-delete btn btn-default btn-xs btn-danger">Delete</button>
+        </span>
 </div>
     <div class="edit">
 <div class="input-group">
     <input type="text" class="name form-control" value="<%- name %>" >
       <span class="input-group-btn">
-        <button class="btn-save btn btn-default" type="button">Save</button>
+        <button class="btn-save btn btn-default btn-primary" type="button">Save</button>
       </span>
 </div>
         </div>
