@@ -47,6 +47,11 @@ define([
             return this;
         },
 
+        confirm: function(){
+
+        },
+
+
         delete: function(){
             this.model.destroy();
             return this;

@@ -2,6 +2,7 @@ define([
     'backbone'
 ], function(Backbone){
     return Backbone.Model.extend({
-        name : 'new file'
+        name : 'new file',
+        selected: false
     })
 });
